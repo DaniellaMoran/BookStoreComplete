@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { openingPage } from '../../../assets/info';
 
 @Component({
   selector: 'app-opening-page',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './opening-page.component.scss'
 })
 export class OpeningPageComponent {
-
+  openingPage = openingPage;
+  dsaad(){
+    this.openingPage.headline
+  }
 }
