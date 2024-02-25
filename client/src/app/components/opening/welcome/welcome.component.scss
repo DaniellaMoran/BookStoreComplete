@@ -1,0 +1,136 @@
+:host {
+    // display: block;
+    // position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.blurry-background {
+    background-image: url('../../../../assets/welcom-bg-pc.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    filter: brightness(52%) contrast(96%) saturate(120%) sepia(7%) blur(1px);
+}
+
+#center-text {
+    color: #f0e9e3;
+    height: 80%;
+    width: 70%;
+    position: fixed;
+    text-align: center;
+    
+
+    h1 {
+        font-size: 8.2rem;
+    }
+
+    h2 {
+        font-size: 3.2rem;
+    }
+    h3 {
+        font-size: 1.9rem;
+        // margin-top: 52%;
+    }
+    
+    #user-interaction {
+        display: flex;
+        height: 22%;
+        width: 48%;
+        /* margin-top: 4vmin; */
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        margin: auto;
+        top: 19vmin;
+        position: relative;
+
+        #account {
+            position: absolute;
+            text-align: left;
+            // left: 0;
+            margin-bottom: 3%;
+        }
+
+        .user-button {
+            background-color: #f0e9e3;
+            height: 30%;
+            width: 67%;
+            border-radius: var(--border-radius);
+            border-width: 1.9px;
+            font-size: 1.59rem;
+            // font-family: initial;
+            font-weight: 500;
+            transition: background-color 0.9s ease, transform 0.4s;
+        }
+
+        .user-button:hover {
+            background-color: #fbc0a9;
+            transform: translateY(-10px);
+        }
+
+        .dance {
+            animation: dance 0.5s ease;
+        }
+
+        @keyframes dance {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            50% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+            100% { transform: rotate(0deg); }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 767px) {
+    .blurry-background {
+        background-image: url('../../../../assets/welcome-bg.jpg');
+    }
+
+    #center-text {
+        height: 65%;
+        width: 74%;
+        text-align: start;
+        h1 {
+            font-size: 3.9rem;
+        }
+    
+        h2 {
+            font-size: 1.7rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin-top: 52%;
+        }
+
+        #account {
+            position: absolute;
+            text-align: left;
+            left: 0;
+            font-size: 0.9rem;
+        }
+
+        #user-interaction {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            top: 0;
+            height: 29%;
+            .user-button {
+                height: 30%;
+                width: 114%;
+                border: none;
+                font-size: 1.5rem;
+                font-weight: 600;
+            }
+        }
+    }
+
+
+}
