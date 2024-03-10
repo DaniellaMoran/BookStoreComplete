@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { openingPage } from '../../../../assets/info';
 
 @Component({
@@ -8,10 +8,13 @@ import { openingPage } from '../../../../assets/info';
 })
 export class WelcomeComponent {
   openingPage = openingPage;
+  @Output() signUp: EventEmitter<any> = new EventEmitter();
 
   dance(event: MouseEvent){
     const element = event.target as HTMLElement;
     element.classList.add("dance");
+
+    this.signUp.emit();
   }
 
   stopDancing(event: AnimationEvent){

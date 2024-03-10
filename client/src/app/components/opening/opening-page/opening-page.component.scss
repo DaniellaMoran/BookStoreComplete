@@ -7,3 +7,11 @@
 //     align-items: center;
 //     overflow-x: hidden;
 // }
+
+* {
+    transition: transform 0.5s ease;
+}
+
+.hidden {
+    transform: translateX(100%);
+}

@@ -1,8 +1,2 @@
-<!-- <main [@routeAnimations]="prepareRoute(outlet)">
-    <button routerLink="/signup">signup</button>
-    <button routerLink="/welcome">welcome</button>
-    <router-outlet #outlet="outlet"></router-outlet>
-</main> -->
-
-<app-welcome></app-welcome>
-<!-- <app-signup></app-signup> -->
+<app-welcome id="welcome" (signUp)="showSignUp()"></app-welcome>
+<app-signup id="signup" class="hidden"></app-signup>

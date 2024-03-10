@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
-import {RouterOutlet} from '@angular/router';
-import {  fader,  } from "../../../../assets/route-animations";
 
 @Component({
   selector: 'app-opening-page',
   templateUrl: './opening-page.component.html',
-  styleUrl: './opening-page.component.scss',
-  animations: [
-    fader
-  ]
+  styleUrl: './opening-page.component.scss'
 })
 export class OpeningPageComponent {
-  prepareRoute(outlet: RouterOutlet){
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  showSignUp(){
+    document.getElementById('welcome')!.style.transform = 'translateX(-100%)';
+    document.getElementById('signup')!.style.transform = 'translateX(0)';
+    // signInPage.style.transform = 'translateX(0)';
   }
 }
