@@ -13,8 +13,9 @@ export class WelcomeComponent {
   dance(event: MouseEvent){
     const element = event.target as HTMLElement;
     element.classList.add("dance");
-
-    this.signUp.emit();
+    setTimeout(() => {
+      this.signUp.emit();
+    }, 900);
   }
 
   stopDancing(event: AnimationEvent){

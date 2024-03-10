@@ -1,6 +1,5 @@
 :host {
     display: block;
-    // position: fixed;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -65,24 +64,23 @@
             font-size: 1.59rem;
             // font-family: initial;
             font-weight: 600;
-            transition: background-color 0.9s ease, transform 0.4s;
+            transition: background-color 0.5s ease;
         }
 
-        .user-button:hover {
-            background-color: #fbc0a9;
-            transform: translateY(-10px);
-        }
+        // .user-button:hover {
+        //     background-color: #80706a;
+        //     // transform: translateY(-10px);
+        // }
 
         .dance {
-            animation: dance 0.5s ease;
+            animation: dance 1s ease;
         }
 
         @keyframes dance {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(10deg); }
-            50% { transform: rotate(-10deg); }
-            75% { transform: rotate(10deg); }
-            100% { transform: rotate(0deg); }
+            0% { transform: translateY(0); }
+            65% { transform: translateY(-20%); background-color: #ceb6ad;}
+            // 100% { transform: translateY(20%); }
+            100% { transform: translateY(0); }
         }
     }
 }

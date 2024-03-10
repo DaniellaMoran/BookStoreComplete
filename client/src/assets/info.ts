@@ -7,3 +7,12 @@ export const openingPage = {
     logInText:"Log in",
     existingMessage:"already have an account?"
 };
+
+export const signUpPage = {
+    headline: "Enter an Email to get started",
+    emailPlaceHolder: "Email address",
+    userNamePlaceHolder: "Username",
+    FirstNamePlaceHolder: "First Name",
+    LastNamePlaceHolder: "Last Name",
+    nextButton: "Next"
+};

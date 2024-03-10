@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { signUpPage } from '../../../../assets/info';
 
 @Component({
   selector: 'app-signup',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './signup.component.scss'
 })
 export class SignupComponent {
-
+  signUpPage=signUpPage;
 }
