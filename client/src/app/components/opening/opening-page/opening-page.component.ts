@@ -10,4 +10,8 @@ export class OpeningPageComponent {
     document.getElementById('welcome')!.style.transform = 'translateX(-100%)';
     // document.getElementById('signup')!.style.transform = 'translateX(0)';
   }
+
+  goBackToWelcome(){
+    document.getElementById('welcome')!.style.transform = 'translateX(0)';
+  }
 }

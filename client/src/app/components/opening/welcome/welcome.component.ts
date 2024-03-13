@@ -10,7 +10,7 @@ export class WelcomeComponent {
   openingPage = openingPage;
   @Output() signUp: EventEmitter<any> = new EventEmitter();
 
-  dance(event: MouseEvent){
+  onSignUp(event: MouseEvent){
     const element = event.target as HTMLElement;
     element.classList.add("dance");
     setTimeout(() => {

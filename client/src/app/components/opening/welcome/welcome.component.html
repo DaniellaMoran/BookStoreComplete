@@ -5,8 +5,8 @@
     <h3>{{openingPage.explanation}}</h3>
 
     <div id="user-interaction">
-        <button class="user-button" (click)="dance($event)" (animationend)="stopDancing($event)">{{openingPage.signUpText}}</button>
+        <button class="user-button" (click)="onSignUp($event)" (animationend)="stopDancing($event)">{{openingPage.signUpText}}</button>
         <p id="account">already have an account?</p>
-        <button class="user-button" (click)="dance($event)" (animationend)="stopDancing($event)">{{openingPage.logInText}}</button>
+        <button class="user-button" (click)="onSignUp($event)" (animationend)="stopDancing($event)">{{openingPage.logInText}}</button>
     </div>
 </div>

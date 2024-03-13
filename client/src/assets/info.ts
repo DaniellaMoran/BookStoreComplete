@@ -14,5 +14,6 @@ export const signUpPage = {
     userNamePlaceHolder: "Username",
     FirstNamePlaceHolder: "First Name",
     LastNamePlaceHolder: "Last Name",
+    passwordPlaceHolder: "Last Name",
     nextButton: "Next"
 };

@@ -1,9 +1,13 @@
-<h1>{{signUpPage.headline}}</h1>
-<form action="">
-    <input title="email" [placeholder]="signUpPage.emailPlaceHolder" type="text">
-    <input title="FirstName" [placeholder]="signUpPage.FirstNamePlaceHolder" type="text">
-    <input title="LastName" [placeholder]="signUpPage.LastNamePlaceHolder" type="text">
-    <input title="UserName" [placeholder]="signUpPage.userNamePlaceHolder" type="text">
-</form>
-
-<button>{{signUpPage.nextButton}}</button>
+<img id="back-btn" (click)="goBack()" src="../../../../assets/arrow.png" alt="back">
+<div class="center">
+    <h1 id="signup-headline">{{signUpPage.headline}}</h1>
+    <!-- <p id="signup-form-status">Form Status: {{ signUpForm.status }}</p> -->
+    <form id="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <input title="FirstName" formControlName="firstName" [placeholder]="signUpPage.FirstNamePlaceHolder" type="text">
+        <input title="LastName" formControlName="lastName" [placeholder]="signUpPage.LastNamePlaceHolder" type="text">
+        <input title="UserName" formControlName="userName" [placeholder]="signUpPage.userNamePlaceHolder" type="text">
+        <input title="email" formControlName="mail" [placeholder]="signUpPage.emailPlaceHolder" type="text">
+        <input title="Password" formControlName="password" [placeholder]="signUpPage.passwordPlaceHolder" type="text">
+        <button type="submit" [style]="" [disabled]="!signUpForm.valid">{{signUpPage.nextButton}}</button>
+    </form>
+</div>

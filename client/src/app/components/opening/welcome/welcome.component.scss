@@ -18,11 +18,8 @@
 
 #center-text {
     color: #f0e9e3;
-    height: 80%;
-    width: 70%;
     position: fixed;
-    text-align: center;
-    
+
 
     h1 {
         font-size: 8.2rem;
@@ -94,7 +91,7 @@
     #center-text {
         height: 65%;
         width: 74%;
-        text-align: start;
+        // text-align: start;
         h1 {
             font-size: 3.9rem;
         }
