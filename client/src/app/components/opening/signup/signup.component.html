@@ -2,16 +2,15 @@
 <div class="center">
     <h1 id="signup-headline">{{signUpPage['headline']}}</h1>
     <form id="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        
         <app-input-div [signUpForm]="signUpForm" [FormControl]="'firstName'"></app-input-div>
         <app-input-div [signUpForm]="signUpForm" [FormControl]="'lastName'"></app-input-div>
         <app-input-div [signUpForm]="signUpForm" [FormControl]="'userName'"></app-input-div>
         <app-input-div [signUpForm]="signUpForm" [FormControl]="'mail'"></app-input-div>
-        <app-input-div [signUpForm]="signUpForm" [FormControl]="'password'"></app-input-div>
+        <app-input-div [signUpForm]="signUpForm" [FormControl]="'password'" [showPassword]="showPassword">
+            <img (click)="showPassword = !showPassword" [src]="'../../../../assets/'+ (showPassword?'dont-':'') +'show-password.png'" alt="eye">
+        </app-input-div>
 
-        <!-- <div #mail>
-            <img (click)="showPassword = !showPassword" [src]="'../../../../assets/' + (showPassword?'':'dont-') + 'show-password.png'" alt="eye">
-        </div> -->
-        
         <button type="submit" [style]="" [disabled]="!signUpForm.valid">{{signUpPage['nextButton']}}</button>
     </form>
 </div>

@@ -1,15 +1,20 @@
 <!-- <label [for]="FormControl">Please enter {{ signUpPage[FormControl] }}:</label> -->
 <span id="input-div" [formGroup]="signUpForm">
-    <input title="1" [title]="'please enter ' + FormControl" [formControlName]="FormControl" [placeholder]="signUpPage[FormControl]" type="text">
+    <input title="1" [title]="'please enter ' + FormControl" [formControlName]="FormControl" [placeholder]="signUpPage[FormControl]" [type]="showPassword?'text':'password'">
+    <ng-content></ng-content>
     <div id="error-div" *ngIf="(signUpForm.controls[FormControl].touched || signUpForm.controls[FormControl].dirty) && signUpForm.controls[FormControl].invalid">
         <!-- only when moving on -->
         <div *ngIf="(signUpForm.controls[FormControl].touched)">
-            <span *ngIf="signUpForm.controls[FormControl].hasError('required')">this field is required</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('required')">{{errors.required}}</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('email')">{{errors.email}}</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('minlength')">{{errors.minlength}}</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('maxlength')">{{errors.maxlength}}</span>
         </div>
 
         <!-- instant -->
         <div *ngIf="(signUpForm.controls[FormControl].dirty)">
-            <span *ngIf="signUpForm.controls[FormControl].hasError('pattern')">there can be no numbers.</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('pattern') && FormControl!='password'">{{errors.isAlpha}}</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('pattern') && FormControl=='password'">{{errors.password}}</span>
         </div>
     </div>
 </span>

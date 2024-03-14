@@ -10,5 +10,15 @@ import { signUpPage } from '../../../../assets/info';
 export class InputDivComponent {
   @Input() signUpForm!: FormGroup;
   @Input() FormControl!: string;
+  @Input() showPassword: boolean = true;
   signUpPage = signUpPage;
+
+  errors = {
+    required: "This is a MUST.",
+    email: "That look like an email to you?",
+    minlength: "Too short",
+    maxlength: "TOO long.",
+    isAlpha: "No numbers here",
+    password: "One upper, one lower, one digit.",
+  }
 }

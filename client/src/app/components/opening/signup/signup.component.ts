@@ -14,21 +14,12 @@ export class SignupComponent {
   showPassword: boolean = false;
   
   signUpForm = this.formBuilder.group({
-    firstName: ["", [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
+    firstName: ["", [Validators.required, Validators.pattern(/^[A-Za-z]+$/), Validators.minLength(8)]],
     lastName: ["", [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
     userName: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(13)]],
     mail: ["", [Validators.required, Validators.email]],
     password: ["", [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/)]],
   })
-
-  
-  // signUpForm = new FormGroup({
-  //   firstName: new FormControl(''),
-  //   lastName: new FormControl(''),
-  //   userName: new FormControl(''),
-  //   email: new FormControl(''),
-  //   password: new FormControl(''),
-  // })
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {}
 
