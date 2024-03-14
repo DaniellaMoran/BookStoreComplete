@@ -3,11 +3,27 @@
     <h1 id="signup-headline">{{signUpPage.headline}}</h1>
     <!-- <p id="signup-form-status">Form Status: {{ signUpForm.status }}</p> -->
     <form id="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-        <input title="FirstName" formControlName="firstName" [placeholder]="signUpPage.FirstNamePlaceHolder" type="text">
-        <input title="LastName" formControlName="lastName" [placeholder]="signUpPage.LastNamePlaceHolder" type="text">
-        <input title="UserName" formControlName="userName" [placeholder]="signUpPage.userNamePlaceHolder" type="text">
-        <input title="email" formControlName="mail" [placeholder]="signUpPage.emailPlaceHolder" type="text">
-        <input title="Password" formControlName="password" [placeholder]="signUpPage.passwordPlaceHolder" type="text">
+        <div *ngIf="(signUpForm.controls.firstName.touched || signUpForm.controls.firstName.dirty) && signUpForm.controls.firstName.invalid">
+            <!-- moved on -->
+            <div *ngIf="(signUpForm.controls.firstName.touched)">
+                <span *ngIf="signUpForm.controls.firstName.hasError('required')">there is a required error</span>
+            </div>
+
+            <!-- immediately -->
+            <div>
+                <span *ngIf="signUpForm.controls.firstName.hasError('pattern')">there is a pattern error</span>
+            </div>
+        </div>
+        <input title="please enter first name." formControlName="firstName" [placeholder]="signUpPage.FirstNamePlaceHolder" type="text">
+        <input title="please enter first name." formControlName="lastName" [placeholder]="signUpPage.LastNamePlaceHolder" type="text">
+        <input title="please enter userName." formControlName="userName" [placeholder]="signUpPage.userNamePlaceHolder" type="text">
+        <input title="please enter mail." formControlName="mail" [placeholder]="signUpPage.emailPlaceHolder" type="email">
+        <div id="password-div">
+            <input title="please enter password." formControlName="password" [placeholder]="signUpPage.passwordPlaceHolder" [type]="showPassword?'text':'password'">
+            <img (click)="showPassword = !showPassword" [src]="'../../../../assets/' + (showPassword?'':'dont-') + 'show-password.png'" alt="eye">
+        </div>
+        <!-- <i></i> -->
+        <!-- <input title="please enter password." formControlName="password" [placeholder]="signUpPage.passwordPlaceHolder" type="password"> -->
         <button type="submit" [style]="" [disabled]="!signUpForm.valid">{{signUpPage.nextButton}}</button>
     </form>
 </div>

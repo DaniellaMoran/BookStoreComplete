@@ -67,10 +67,10 @@ const User = sequelize.define(tableName, {
             //     args: [6,13],
             //     msg: 'Password must be minimus 6 and maximum 13 letters.'
             // },
-            // is: {
-            //     args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/,
-            //     msg: 'Password must contain 1 uppercase, 1 lowercase and one digit.'
-            // }
+            is: {
+                args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/,
+                msg: 'Password must contain 1 uppercase, 1 lowercase and one digit.'
+            }
         }
     },
 }, {

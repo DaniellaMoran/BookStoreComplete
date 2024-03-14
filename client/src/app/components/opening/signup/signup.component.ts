@@ -11,14 +11,17 @@ import { UserService } from '../../../services/user.service';
 export class SignupComponent {
   signUpPage = signUpPage;
   @Output() goBackToWelcome: EventEmitter<any> = new EventEmitter();
+  showPassword: boolean = false;
   
   signUpForm = this.formBuilder.group({
-    firstName: ["", Validators.required],
-    lastName: ["", Validators.required],
-    userName: ["", Validators.required],
-    mail: ["", Validators.required],
-    password: ["", Validators.required],
+    firstName: ["", [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
+    lastName: ["", [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
+    userName: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(13)]],
+    mail: ["", [Validators.required, Validators.email]],
+    password: ["", [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/)]],
   })
+
+  
   // signUpForm = new FormGroup({
   //   firstName: new FormControl(''),
   //   lastName: new FormControl(''),

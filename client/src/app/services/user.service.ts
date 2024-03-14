@@ -12,7 +12,7 @@ export class UserService {
     console.log("inside user Sign Up")
     this.http.post(this.url + '/signup', signUpFormValue)
     .subscribe((data) => {
-      console.log(data);
+      // console.log(data);
     });
   }
 }

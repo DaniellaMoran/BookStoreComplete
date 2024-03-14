@@ -4,10 +4,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 function isPasswordOkay(password){
-    var minLength = 6;
-    var maxLength = 13;
+    // var minLength = 6;
+    // var maxLength = 13;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/;
-    return passwordRegex.test(password) && password.length >= minLength && password.length <= maxLength
+    return passwordRegex.test(password);
 }
 
 exports.signup = async (req, res, next) => {
