@@ -6,12 +6,12 @@
         <div *ngIf="(signUpForm.controls.firstName.touched || signUpForm.controls.firstName.dirty) && signUpForm.controls.firstName.invalid">
             <!-- moved on -->
             <div *ngIf="(signUpForm.controls.firstName.touched)">
-                <span *ngIf="signUpForm.controls.firstName.hasError('required')">there is a required error</span>
+                <span *ngIf="signUpForm.controls.firstName.hasError('required')">this field is required</span>
             </div>
 
             <!-- immediately -->
             <div>
-                <span *ngIf="signUpForm.controls.firstName.hasError('pattern')">there is a pattern error</span>
+                <span *ngIf="signUpForm.controls.firstName.hasError('pattern')">there can be no numbers.</span>
             </div>
         </div>
         <input title="please enter first name." formControlName="firstName" [placeholder]="signUpPage.FirstNamePlaceHolder" type="text">

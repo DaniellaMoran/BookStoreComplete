@@ -23,7 +23,7 @@
     height: 51%;
     margin: auto;
 
-    input , #password-div {
+    input, #password-div {
         background-color: rgba(255, 255, 255, 0);
         width: 90%;
         height: 9%;
@@ -103,8 +103,12 @@
         }
 
         #signup-form {
-            height: 69%;
+            height: 80%;
             width: 100%;
+
+            input {
+                height: 8%;
+            }
         }
     }
 }

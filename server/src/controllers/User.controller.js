@@ -23,8 +23,7 @@ exports.signup = async (req, res, next) => {
     .then(result => {
         if (result.length > 0) {
             res.status(409).json({
-                message: 'username/email already exists',
-                res:result
+                message: 'username/email already exists'
             });
         } else {
             // email/username dont exist
@@ -54,6 +53,7 @@ exports.signup = async (req, res, next) => {
                         })
                         .catch(err => {
                             res.status(500).json({
+                                found: "you mf",
                                 message: err.message,
                                 error: err
                             });
@@ -62,7 +62,7 @@ exports.signup = async (req, res, next) => {
                 })
             } else {
                 res.status(500).json({
-                    message: "Password must contain 1 uppercase, 1 lowercase and one digit",
+                    message: " controller Password must contain 1 uppercase, 1 lowercase and one digit, length 8-16",
                 });
             }
         }
