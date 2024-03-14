@@ -1,0 +1,15 @@
+<!-- <label [for]="FormControl">Please enter {{ signUpPage[FormControl] }}:</label> -->
+<span id="input-div" [formGroup]="signUpForm">
+    <input title="1" [title]="'please enter ' + FormControl" [formControlName]="FormControl" [placeholder]="signUpPage[FormControl]" type="text">
+    <div id="error-div" *ngIf="(signUpForm.controls[FormControl].touched || signUpForm.controls[FormControl].dirty) && signUpForm.controls[FormControl].invalid">
+        <!-- only when moving on -->
+        <div *ngIf="(signUpForm.controls[FormControl].touched)">
+            <span *ngIf="signUpForm.controls[FormControl].hasError('required')">this field is required</span>
+        </div>
+
+        <!-- instant -->
+        <div *ngIf="(signUpForm.controls[FormControl].dirty)">
+            <span *ngIf="signUpForm.controls[FormControl].hasError('pattern')">there can be no numbers.</span>
+        </div>
+    </div>
+</span>

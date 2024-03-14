@@ -1,0 +1,36 @@
+:host {
+    position: relative;
+    width: 91%;
+    height: 11%;
+    border-radius: var(--border-radius-input);
+    font-size: 1.1rem;
+    border-width: 2.6px;
+    color: black;
+
+    input {
+        width: 93%;
+        height: 69%;
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 1rem;
+        border-radius: var(--border-radius-input);
+        border-width: 2.3px;
+        padding: 5.8px 7px;
+    }
+    input::placeholder {
+        color: gray;
+        font-weight: 700;
+    }
+    input.ng-invalid.ng-touched, input.ng-invalid.ng-dirty {
+        border-color: red;
+    }
+
+    img {
+        position: absolute;
+        right: 0;
+        height: 100%;
+    }
+
+    #error-div {
+        background-color: aquamarine;
+    }
+}

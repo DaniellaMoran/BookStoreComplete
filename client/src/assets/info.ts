@@ -8,12 +8,12 @@ export const openingPage = {
     existingMessage:"already have an account?"
 };
 
-export const signUpPage = {
+export const signUpPage: { [key: string]: string } = {
     headline: "Enter an Email to get started",
-    emailPlaceHolder: "Email address",
-    userNamePlaceHolder: "Username",
-    FirstNamePlaceHolder: "First Name",
-    LastNamePlaceHolder: "Last Name",
-    passwordPlaceHolder: "Password",
+    firstName: "First Name",
+    lastName: "Last Name",
+    userName: "Username",
+    mail: "Email address",
+    password: "Password",
     nextButton: "Next"
 };
