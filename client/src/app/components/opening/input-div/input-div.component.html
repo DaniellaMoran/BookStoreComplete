@@ -9,6 +9,8 @@
             <span *ngIf="signUpForm.controls[FormControl].hasError('email')">{{errors.email}}</span>
             <span *ngIf="signUpForm.controls[FormControl].hasError('minlength')">{{errors.minlength}}</span>
             <span *ngIf="signUpForm.controls[FormControl].hasError('maxlength')">{{errors.maxlength}}</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('userNameExists')">{{errors.userNameExists}}</span>
+            <span *ngIf="signUpForm.controls[FormControl].hasError('emailExists')">{{errors.emailExists}}</span>
         </div>
 
         <!-- instant -->

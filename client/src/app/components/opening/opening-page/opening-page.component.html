@@ -1,2 +1,3 @@
-<app-signup id="signup" class="hidden" (goBackToWelcome)="goBackToWelcome()"></app-signup>
-<app-welcome id="welcome" (signUp)="showSignUp()"></app-welcome>
+<app-signup *ngIf="operationChoice !== ''" id="operation" class="hidden" [operation]="operationChoice" (goBackToWelcome)="goBackToWelcome()"></app-signup>
+<!-- <app-login id="login" class="hidden" (goBackToWelcome)="goBackToWelcome('login')"></app-login> -->
+<app-welcome id="welcome" (operation)="showPage($event)"></app-welcome>

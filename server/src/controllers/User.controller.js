@@ -4,11 +4,62 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 function isPasswordOkay(password){
-    // var minLength = 6;
-    // var maxLength = 13;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/;
     return passwordRegex.test(password);
 }
+
+exports.checkUserNameAvalibility = async (req, res, next) => {
+    await User.findOne({
+        where: { userName: req.body.userName }
+    })
+    .then(result => {
+        if (result) {
+            res.status(409).json({
+                message: 'username already exists',
+                answer: true
+            });
+        } else {
+            res.status(200).json({
+                message: 'okay! available',
+                answer: false
+            });
+        }
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: err.message,
+            msg:"error processing request to find user with same username",
+            error: err
+        });
+    });
+};
+
+exports.checkMailAvalibility = async (req, res, next) => {
+    await User.findOne({
+        where: { mail: req.body.mail }
+    })
+    .then(result => {
+        if (result) {
+            res.status(409).json({
+                message: 'email already exists',
+                answer: true
+            });
+        } else {
+            res.status(200).json({
+                message: 'okay! available',
+                answer: false
+            });
+        }
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: err.message,
+            msg:"error processing request to find mail check",
+            error: err
+        });
+    });
+};
+
 
 exports.signup = async (req, res, next) => {
     // find if user exists

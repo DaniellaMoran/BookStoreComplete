@@ -1,7 +1,8 @@
 <img id="back-btn" (click)="goBack()" src="../../../../assets/arrow.png" alt="back">
 <div class="center">
-    <h1 id="signup-headline">{{signUpPage['headline']}}</h1>
-    <form id="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <!-- <h1 id="signup-headline">{{operation}}</h1> -->
+    <h1 id="signup-headline">{{signUpPage[operation]}}</h1>
+    <form *ngIf="operation === 'signUp'" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         
         <app-input-div [signUpForm]="signUpForm" [FormControl]="'firstName'"></app-input-div>
         <app-input-div [signUpForm]="signUpForm" [FormControl]="'lastName'"></app-input-div>
@@ -12,5 +13,15 @@
         </app-input-div>
 
         <button type="submit" [style]="" [disabled]="!signUpForm.valid">{{signUpPage['nextButton']}}</button>
+    </form>
+
+    <form *ngIf="operation === 'login'" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <app-input-div [signUpForm]="loginForm" [FormControl]="'userNameOrMail'"></app-input-div>
+        <app-input-div [signUpForm]="loginForm" [FormControl]="'password'" [showPassword]="showPassword">
+            <img (click)="showPassword = !showPassword" [src]="'../../../../assets/'+ (showPassword?'dont-':'') +'show-password.png'" alt="eye">
+        </app-input-div>
+
+        <button type="submit" [style]="" [disabled]="!loginForm.valid">{{signUpPage['nextButton']}}</button>
     </form>
 </div>

@@ -20,5 +20,12 @@ export class InputDivComponent {
     maxlength: "TOO long.",
     isAlpha: "No numbers here",
     password: "One upper, one lower, one digit.",
+    userNameExists: "user name exists bitch",
+    emailExists: "email already takennn"
+  }
+
+  sss(){
+    console.log("ssssss");
+    console.log(this.signUpForm.errors);
   }
 }

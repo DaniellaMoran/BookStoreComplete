@@ -16,7 +16,7 @@ import { InputDivComponent } from './components/opening/input-div/input-div.comp
     OpeningPageComponent,
     SignupComponent,
     WelcomeComponent,
-    InputDivComponent
+    InputDivComponent,
   ],
   imports: [
     BrowserModule,

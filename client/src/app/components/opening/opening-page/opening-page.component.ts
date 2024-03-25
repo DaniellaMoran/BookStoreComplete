@@ -6,12 +6,16 @@ import { Component } from '@angular/core';
   styleUrl: './opening-page.component.scss'
 })
 export class OpeningPageComponent {
-  showSignUp(){
+  operationChoice: string = '';
+
+  showPage(toShow: string){
+    this.operationChoice = toShow;
+    console.log(`show Page on opening page::: ${this.operationChoice}`);
     document.getElementById('welcome')!.style.transform = 'translateX(-100%)';
-    // document.getElementById('signup')!.style.transform = 'translateX(0)';
   }
 
   goBackToWelcome(){
+    this.operationChoice = '';
     document.getElementById('welcome')!.style.transform = 'translateX(0)';
   }
 }

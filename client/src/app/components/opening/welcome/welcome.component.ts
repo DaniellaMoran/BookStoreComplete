@@ -8,13 +8,13 @@ import { openingPage } from '../../../../assets/info';
 })
 export class WelcomeComponent {
   openingPage = openingPage;
-  @Output() signUp: EventEmitter<any> = new EventEmitter();
+  @Output() operation: EventEmitter<string> = new EventEmitter();
 
-  onSignUp(event: MouseEvent){
+  onChoose(event: MouseEvent, choice: string){
     const element = event.target as HTMLElement;
     element.classList.add("dance");
     setTimeout(() => {
-      this.signUp.emit();
+      this.operation.emit(choice);
     }, 900);
   }
 

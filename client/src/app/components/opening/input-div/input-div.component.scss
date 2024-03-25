@@ -8,13 +8,15 @@
     color: black;
 
     input {
-        width: 93%;
-        height: 69%;
-        background-color: rgba(255, 255, 255, 0);
-        font-size: 1rem;
+        position: relative;
+        width: 91%;
+        height: 6.5vh;
+        margin: 1.7vh 0vh;
         border-radius: var(--border-radius-input);
-        border-width: 2.3px;
-        padding: 5.8px 7px;
+        font-size: 1.1rem;
+        border-width: 2.6px;
+        color: black;
+        padding: 0px 7px;
     }
     input::placeholder {
         color: gray;

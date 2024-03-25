@@ -9,7 +9,9 @@ export const openingPage = {
 };
 
 export const signUpPage: { [key: string]: string } = {
-    headline: "Enter an Email to get started",
+    signUp: "Enter an Email to get started",
+    login: "login here",
+    userNameOrMail: "userNameOrMail",
     firstName: "First Name",
     lastName: "Last Name",
     userName: "Username",
