@@ -10,5 +10,6 @@ router.get('/', userController.getAllUsers);
 router.get('/:UserId', userController.getUser);
 router.patch('/:UserId', userController.updateUser);
 router.delete('/:UserId', userController.deleteUser);
+router.delete('/', userController.deleteAllUsers);
 
 module.exports = router;

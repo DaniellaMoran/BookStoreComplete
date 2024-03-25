@@ -128,7 +128,7 @@ exports.signup = async (req, res, next) => {
 };
 
 exports.login = async (req, res, next) => {
-    const loginIdentifier = req.body.userName || req.body.mail;
+    const loginIdentifier = req.body.userNameOrMail;
     await User.findAll({
         where: {
             [Op.or]: [
@@ -239,6 +239,21 @@ exports.updateUser = async (req, res, next) => {
                 message: 'User not found'
             });
         }
+    })
+    .catch(err => {
+        res.status(500).json({
+            message: err.message,
+            error: err
+        });
+    });
+};
+
+exports.deleteAllUsers = async (req, res, next) => {
+    await User.destroy({where:{}})
+    .then(result => {
+        res.status(200).json({
+            message: 'Users deleted successfully'
+        });
     })
     .catch(err => {
         res.status(500).json({

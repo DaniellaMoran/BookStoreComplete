@@ -10,8 +10,25 @@ export class UserService {
   url: string = 'http://localhost:3000/User';
   constructor(private http: HttpClient) { }
 
-  userLogin(loginFormValue: any) {
+  userLogin(loginFormValue: any): Observable<string> {
     console.log("loginFormValue");
+    return new Observable<string>(observer => {
+      this.http.post(this.url + '/login', loginFormValue)
+        .subscribe({
+          next: (result) => {
+            console.log("no apparent problem");
+            console.log(result);
+            observer.next('loggedIn');
+            observer.complete();
+          },
+          error: (error) => {
+            console.log("problem");
+            console.log(error);
+            observer.next('notLoggedIn');
+            observer.complete();
+          }
+        });
+    });
   }
 
   userSignUp(signUpFormValue: any) {

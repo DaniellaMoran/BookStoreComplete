@@ -13,7 +13,8 @@ export class SignupComponent implements OnInit {
   @Input() operation: string = 'signup';
   @Output() goBackToWelcome: EventEmitter<any> = new EventEmitter();
   showPassword: boolean = false;
-  
+  loggedIn: string = '';
+
   signUpForm!: FormGroup;
   loginForm!: FormGroup;
 
@@ -41,8 +42,8 @@ export class SignupComponent implements OnInit {
   buildLoginForm(){
     console.log("buildLoginForm");
     this.loginForm = this.formBuilder.group({
-      userNameOrMail: ["", [this.userNameOrMailValidator]],
-      password: ["", [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/)]],
+      userNameOrMail: ["", [this.userNameOrMailValidator, Validators.required]],
+      password: ["", [Validators.required]]
     });
   }
 
@@ -66,7 +67,24 @@ export class SignupComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     console.log("sumbited");
     if (this.operation === 'login') {
-      this.userService.userLogin(this.loginForm.value);
+      
+      this.userService.userLogin(this.loginForm.value).subscribe({
+        next: (status) => {
+          console.log('Login status: ', status);
+          // Handle the login status here
+          this.loggedIn = status;
+        },
+        error: (error) => {
+          console.log('Error:', error);
+          // Handle the error here
+        },
+        complete: () => {
+          console.log('Login process completed');
+        }
+      });
+      
+      console.log("on submit" + this.loggedIn);
+      // notLoggedIn
     } else {
       this.userService.userSignUp(this.signUpForm.value);
     }

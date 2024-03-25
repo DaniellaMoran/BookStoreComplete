@@ -11,7 +11,7 @@ const User = require('../models/User.model');
 
 router.delete('/', async (req, res, next) => {
     console.log("delete");
-    OrderedBooks.destroy({where:{},}).then((result) =>{
+    OrderedBooks.destroy({where:{}}).then((result) =>{
         Order.destroy({where:{}}).then((result) => {
             Review.destroy({where:{}}).then((result) => {
                 User.destroy({where:{}}).then((result) => {
