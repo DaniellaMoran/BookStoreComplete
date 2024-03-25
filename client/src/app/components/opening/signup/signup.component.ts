@@ -35,7 +35,7 @@ export class SignupComponent implements OnInit {
       userName: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(13)], [this.userService.userNameAvailableValidator()]],
       mail: ["", [Validators.required, Validators.email], [this.userService.mailAvailableValidator()]],
       password: ["", [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/)]],
-    }, { updateOn: 'blur'});
+    });
   }
 
   buildLoginForm(){
@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       userNameOrMail: ["", [this.userNameOrMailValidator]],
       password: ["", [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$/)]],
-    }, { updateOn: 'blur'});
+    });
   }
 
   userNameOrMailValidator(control: AbstractControl): ValidationErrors | null {

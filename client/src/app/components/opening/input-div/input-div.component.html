@@ -1,5 +1,5 @@
 <!-- <label [for]="FormControl">Please enter {{ signUpPage[FormControl] }}:</label> -->
-<span id="input-div" [formGroup]="signUpForm">
+<div id="input-div" [formGroup]="signUpForm">
     <input title="1" [title]="'please enter ' + FormControl" [formControlName]="FormControl" [placeholder]="signUpPage[FormControl]" [type]="showPassword?'text':'password'">
     <ng-content></ng-content>
     <div id="error-div" *ngIf="(signUpForm.controls[FormControl].touched || signUpForm.controls[FormControl].dirty) && signUpForm.controls[FormControl].invalid">
@@ -19,4 +19,4 @@
             <span *ngIf="signUpForm.controls[FormControl].hasError('pattern') && FormControl=='password'">{{errors.password}}</span>
         </div>
     </div>
-</span>
+</div>
