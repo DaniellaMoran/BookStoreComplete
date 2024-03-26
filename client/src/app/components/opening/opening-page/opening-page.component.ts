@@ -19,6 +19,7 @@ import { trigger, state, style, transition, animate, AnimationEvent } from '@ang
     ])
   ]
 })
+
 export class OpeningPageComponent {
   // For controling the *ngIf:
   operationChoice: string = 'welcome';
@@ -30,6 +31,7 @@ export class OpeningPageComponent {
     this.operationChoice = toShow;
     this.animationTrigger = toShow;
   }
+  
 
   animateBackToWelcome() {
     // First the animation is triggered when the user clicks go back

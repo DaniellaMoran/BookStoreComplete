@@ -1,0 +1,24 @@
+:host {
+    display: block;
+    height: 23%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    color: #f0e9e3;
+    position: sticky;
+}
+
+.blurry-background {
+    background-image: url('../../../../assets/home-header-bg.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    filter: brightness(52%) contrast(81%) saturate(134%) sepia(7%) blur(1px);
+}
+
+#text-area {
+    position: absolute;
+    top: 34%;
+    left: 10%;
+}

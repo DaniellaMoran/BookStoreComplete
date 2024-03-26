@@ -19,3 +19,11 @@ export const signUpPage: { [key: string]: string } = {
     password: "Password",
     nextButton: "Next"
 };
+
+export const homePage = {
+    headerHeadline: "Daniella's library",
+    headerSubHeadline: "Search. Click. Buy.",
+    container1: "Popular books",
+    container2: "Romantic books",
+    container3: "Historical books",
+};

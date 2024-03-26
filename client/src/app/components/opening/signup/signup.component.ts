@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { signUpPage } from '../../../../assets/info';
 import { FormBuilder, Validators, FormGroup, AbstractControl, ValidationErrors } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -13,12 +14,12 @@ export class SignupComponent implements OnInit {
   @Input() operation: string = 'signup';
   @Output() goBackToWelcome: EventEmitter<any> = new EventEmitter();
   showPassword: boolean = false;
-  loggedIn: string = '';
+  loggedIn: boolean | undefined = undefined;
 
   signUpForm!: FormGroup;
   loginForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService) {}
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {}
 
   ngOnInit(){
     if (this.operation === 'login') {
@@ -29,7 +30,6 @@ export class SignupComponent implements OnInit {
   }
 
   buildSignUpForm(){
-    console.log("buildSignUpForm");
     this.signUpForm = this.formBuilder.group({
       firstName: ["", [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
       lastName: ["", [Validators.required, Validators.pattern(/^[A-Za-z]+$/)]],
@@ -40,7 +40,6 @@ export class SignupComponent implements OnInit {
   }
 
   buildLoginForm(){
-    console.log("buildLoginForm");
     this.loginForm = this.formBuilder.group({
       userNameOrMail: ["", [this.userNameOrMailValidator, Validators.required]],
       password: ["", [Validators.required]]
@@ -69,24 +68,34 @@ export class SignupComponent implements OnInit {
     if (this.operation === 'login') {
       
       this.userService.userLogin(this.loginForm.value).subscribe({
-        next: (status) => {
-          console.log('Login status: ', status);
-          // Handle the login status here
-          this.loggedIn = status;
+        next: (response) => {
+          // This changes the error message to show up
+          this.loggedIn = response.status;
+
+          if (response.status) {
+            localStorage.setItem('token', response.token);
+            this.router.navigate(['/home']);
+          }
         },
         error: (error) => {
           console.log('Error:', error);
-          // Handle the error here
         },
         complete: () => {
           console.log('Login process completed');
         }
       });
-      
-      console.log("on submit" + this.loggedIn);
-      // notLoggedIn
     } else {
-      this.userService.userSignUp(this.signUpForm.value);
+      this.userService.userSignUp(this.signUpForm.value).subscribe({
+        next: (response) => {
+          
+        },
+        error: (error) => {
+          console.log('Error:', error);
+        },
+        complete: () => {
+          console.log('Signup process completed');
+        }
+      });
     }
   }
 

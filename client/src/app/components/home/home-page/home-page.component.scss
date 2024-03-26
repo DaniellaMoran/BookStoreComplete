@@ -1,0 +1,31 @@
+:host {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    top: 0;
+    position: sticky;
+
+    
+}
+
+#center-area {
+    background-color: rgba(0, 255, 255, 0.247);
+    height: 77%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    #genres {
+        background-color: antiquewhite;
+        height: 26%;
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+    }
+}

@@ -16,13 +16,22 @@
 
     input {
         position: relative;
-        width: 89%;
+        width: 93%;
         height: 94%;
         border-radius: var(--border-radius-input);
         font-size: 1.1rem;
         border-width: 2.6px;
         color: black;
-        padding: 0px 11px;
+        padding: 0px 3%;
+
+        // position: relative;
+        // width: 89%;
+        // height: 94%;
+        // border-radius: var(--border-radius-input);
+        // font-size: 1.1rem;
+        // border-width: 2.6px;
+        // color: black;
+        // padding: 0px 11px;
     }
     input::placeholder {
         color: gray;
@@ -30,12 +39,6 @@
     }
     input.ng-invalid.ng-touched, input.ng-invalid.ng-dirty {
         border-color: red;
-    }
-
-    img {
-        position: absolute;
-        right: 0;
-        height: 100%;
     }
 
     #error-div {
@@ -47,3 +50,6 @@
         font-style: italic;
     }
 }
+
+
+

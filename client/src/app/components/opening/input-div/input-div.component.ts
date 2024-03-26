@@ -23,9 +23,4 @@ export class InputDivComponent {
     userNameExists: "user name exists bitch",
     emailExists: "email already takennn"
   }
-
-  sss(){
-    console.log("ssssss");
-    console.log(this.signUpForm.errors);
-  }
 }

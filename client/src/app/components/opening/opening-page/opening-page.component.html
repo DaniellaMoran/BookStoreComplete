@@ -1,10 +1,8 @@
-<app-signup
-*ngIf="operationChoice !== 'welcome'"
+<app-signup *ngIf="operationChoice !== 'welcome'"
 id="operation" class="hidden"
-[operation]="operationChoice"
-(goBackToWelcome)="animateBackToWelcome()"
+[operation]="operationChoice" (goBackToWelcome)="animateBackToWelcome()"
 ></app-signup>
-<!-- <app-login id="login" class="hidden" (goBackToWelcome)="goBackToWelcome('login')"></app-login> -->
+
 <app-welcome
 [@slideInOut]="animationTrigger"
 id="welcome"

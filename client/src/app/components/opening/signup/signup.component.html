@@ -22,7 +22,7 @@
             <img (click)="showPassword = !showPassword" [src]="'../../../../assets/'+ (showPassword?'dont-':'') +'show-password.png'" alt="eye">
         </app-input-div>
         
-        <span *ngIf="loggedIn === 'notLoggedIn'">Credentials wrong.  {{loggedIn}}</span>
+        <span *ngIf="loggedIn === false">Credentials wrong.</span>
         
         <button type="submit" [style]="" [disabled]="!loginForm.valid">{{signUpPage['nextButton']}}</button>
     </form>

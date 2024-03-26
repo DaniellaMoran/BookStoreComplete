@@ -10,41 +10,47 @@ export class UserService {
   url: string = 'http://localhost:3000/User';
   constructor(private http: HttpClient) { }
 
-  userLogin(loginFormValue: any): Observable<string> {
-    console.log("loginFormValue");
-    return new Observable<string>(observer => {
+  userLogin(loginFormValue: any): Observable<any> {
+    return new Observable<any>(observer => {
       this.http.post(this.url + '/login', loginFormValue)
         .subscribe({
-          next: (result) => {
-            console.log("no apparent problem");
-            console.log(result);
-            observer.next('loggedIn');
+          next: (result: any) => {
+            observer.next({
+              token: result.token,
+              status: true,
+              message: result.message
+            });
             observer.complete();
           },
           error: (error) => {
-            console.log("problem");
-            console.log(error);
-            observer.next('notLoggedIn');
+            observer.next({
+              status: error.ok,
+              message: error.error.message
+            });
             observer.complete();
           }
         });
     });
   }
 
-  userSignUp(signUpFormValue: any) {
-    console.log("signUpFormValue")
-    this.http.post(this.url + '/signup', signUpFormValue)
-    .subscribe({
-      next: (result) => {
-        console.log("no apperant problem");
-        console.log(result);
-      },
-      error: (error) => {
-        console.log(error);
-      },
-      complete: () => {
-        console.log("finished");
-      },
+  userSignUp(signUpFormValue: any): Observable<any> {
+    return new Observable<any>(observer => {
+      this.http.post(this.url + '/signup', signUpFormValue)
+      .subscribe({
+        next: (result) => {
+          console.log(result);
+          observer.next(result);
+          observer.complete();
+        },
+        error: (error) => {
+          observer.next({
+            message: error.error.message
+          });
+          observer.complete();
+        },
+        complete: () => {
+        },
+      });
     });
   }
 
