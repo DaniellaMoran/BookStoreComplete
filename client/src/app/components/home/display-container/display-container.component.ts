@@ -7,10 +7,16 @@ import { Component, HostBinding, Input } from '@angular/core';
 })
 export class DisplayContainerComponent {
   @Input() headline: string = 'כותרת סתמית';
+  @Input() isWide: boolean = false;
   @Input() isLarge: boolean = false;
   @HostBinding('style.width')
   get width() {
-    return this.isLarge ? '90%' : '45%';
+    return this.isWide ? '90vw' : '40vw';
+  };
+  
+  @HostBinding('style.height')
+  get height() {
+    return this.isLarge ? '20vh' : '18vh';
   }
   // @HostBinding('style.height') @Input() height: string = '30%'; 
 }

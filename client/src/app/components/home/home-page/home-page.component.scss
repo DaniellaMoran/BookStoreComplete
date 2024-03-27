@@ -13,19 +13,18 @@
 
 #center-area {
     background-color: rgba(0, 255, 255, 0.247);
-    height: 77%;
+    height: 72%;
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 6%;
 
     #genres {
         background-color: antiquewhite;
-        height: 26%;
-        width: 80%;
+        // height: 26%;
+        width: 100%;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-content: center;
+        justify-content: space-between;
     }
 }

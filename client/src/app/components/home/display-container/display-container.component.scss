@@ -1,13 +1,23 @@
 :host {
-    display: block;
+    // display: block;
     background-color: rgb(164, 245, 157);
-    height: 26%;
+    // height: 26%;
+    // position: relative;
 }
 
-h1,h2 {
+h2 {
     margin: 0px;
+    height: 24%;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    padding: 10px;
 }
 
 #books-container {
-
+    background-color: azure;
+    box-sizing: border-box;
+    height: 76%;
+    padding: 0px 10px;
+    // position: sticky;
+    // width: 100%;
 }
