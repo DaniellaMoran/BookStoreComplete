@@ -12,8 +12,9 @@ import { InputDivComponent } from './components/opening/input-div/input-div.comp
 import { HomePageComponent } from './components/home/home-page/home-page.component';
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { HeaderComponent } from './components/home/header/header.component';
-import { DisplayContainerComponent } from './components/home/display-container/display-container.component';
 import { SearchBoxComponent } from './components/home/search-box/search-box.component';
+import { BookShelfComponent } from './components/general/book-shelf/book-shelf.component';
+import { SingleBookComponent } from './components/general/single-book/single-book.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,9 @@ import { SearchBoxComponent } from './components/home/search-box/search-box.comp
     HomePageComponent,
     NotFoundComponent,
     HeaderComponent,
-    DisplayContainerComponent,
     SearchBoxComponent,
+    BookShelfComponent,
+    SingleBookComponent,
   ],
   imports: [
     BrowserModule,

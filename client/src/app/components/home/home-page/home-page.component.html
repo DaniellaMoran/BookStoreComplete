@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div id="center-area">
-    <app-display-container [isLarge]="true" [isWide]="true" [headline]="homePage.container1"></app-display-container>
+    <app-book-shelf [headline]="homePage.container1"></app-book-shelf>
     <div id="genres">
-        <app-display-container [headline]="homePage.container2"></app-display-container>
-        <app-display-container [headline]="homePage.container3"></app-display-container>
+        <app-book-shelf [isPresent]="true" [headline]="homePage.container2"></app-book-shelf>
+        <app-book-shelf [isPresent]="true" [headline]="homePage.container3"></app-book-shelf>
     </div>
     <app-search-box></app-search-box>
 </div>

@@ -5,8 +5,8 @@ import { HomePageComponent } from './components/home/home-page/home-page.compone
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 
 const routes: Routes = [
-  { path: '', component: OpeningPageComponent},
-  { path: 'home', component: HomePageComponent},
+  { path: 'home', component: OpeningPageComponent},
+  { path: '', component: HomePageComponent},
   { path: '**', component: NotFoundComponent},
 ];
 

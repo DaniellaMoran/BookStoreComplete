@@ -12,13 +12,14 @@
 }
 
 #center-area {
-    background-color: rgba(0, 255, 255, 0.247);
+    background-color: rgb(245, 245, 245);
     height: 72%;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 6%;
+    padding: 5vw;
+    width: 90vw;
 
     #genres {
         background-color: antiquewhite;

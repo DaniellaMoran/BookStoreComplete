@@ -1,0 +1,25 @@
+:host {
+    --container-border-radius: 20px;
+    background-color: rgb(255 255 255);
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+    height: 20vh;
+}
+
+h2 {
+    margin: 0px;
+    height: 24%;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+    padding: 10px;
+    // max-height: 37px;
+    // min-height: 36px;
+}
+
+#books-container {
+    background-color: azure;
+    height: 76%;
+    overflow-x: auto;
+    display: flex;
+    width: 100%;
+}
